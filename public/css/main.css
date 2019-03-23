@@ -1,0 +1,23 @@
+
+/*nav bar*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.active{
+	background-color: rgba(169, 169, 169, 0.55);
+}
+
+.pagination{
+	display: inline-flex;
+}
