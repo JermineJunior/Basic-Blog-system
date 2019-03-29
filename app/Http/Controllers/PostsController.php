@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class PostsController extends Controller
 {
@@ -40,11 +41,12 @@ class PostsController extends Controller
             'title' =>   'required|unique:posts|max:255',
             'body'  =>    'required',
         ]);
+        
         //store to the DB
           auth()->user()->publish(
               new Post(request(['title','body']))
           );
-
+          Session::flash('success' , "The Post Is Successfully Created!");
             //redirct the user
             return redirect()->route('post.index');
     }
@@ -57,17 +59,34 @@ class PostsController extends Controller
     
     public function edit(Post $post)
     {
-        //
+        
+        return view('posts.edit',compact(['post']));
     }
 
     public function update(Request $request, Post $post)
     {
-        //
+        $this->validate($request,array(
+            'title' => 'required|max:255',  
+            'body' => 'required'
+        ));
+
+       
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        Session::flash('success' , "The Post Is Successfully Saved!");
+        
+        return redirect()->route('post.show' , $post->id);
     }
 
    
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        $post->save;
+
+        Session::flash('success' , "The Post Is Successfully Deleted!");
+        return redirect()->route('post.index');
     }
 }

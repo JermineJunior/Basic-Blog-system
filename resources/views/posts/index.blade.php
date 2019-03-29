@@ -2,6 +2,7 @@
 
 @section('content')
 
+
          <div class=" col-sm-8">
          
                 @foreach ($posts as $post)
@@ -41,9 +42,9 @@
                      </div> 
 
                      <div class="col-md-3">
-                            <a class="btn -btn-sm btn-secondry nav-link" href="#">
-                                <i class=" fa fa-share-square "></i>    
-                                Share    
+                            <a class="btn -btn-sm btn-secondry nav-link" href="post/{{$post->id}}/edit">
+                                <i class=" fa fa-edit "></i>    
+                                Edit    
                             </a>
                        
                     </div> 
@@ -53,6 +54,10 @@
         </div>
                 @endforeach
            
+        </div>
+
+        <div class="col-md-3 text-lef">
+                <a class="btn btn-block btn-outline-success" href="{{route('post.create')}}">Create A Post</a>
         </div>
         
     

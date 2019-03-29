@@ -30,8 +30,8 @@
   <nav class="nav nav-bar-taps d-flex justify-content-between">
     <a class="p-2 text-muted nav-link" href="{{route('home')}}">Home</a>
     <a class="p-2 text-muted nav-link" href="{{route('post.index')}}">Posts</a>
-    <a class="p-2 text-muted nav-link" href="#">Contact</a>
-    <a class="p-2 text-muted nav-link" href="#">About</a>
+    <a class="p-2 text-muted nav-link" href="/contact">Contact</a>
+    <a class="p-2 text-muted nav-link" href="/about">About</a>
     <a class="p-2 text-muted nav-link" href="#">Tags</a>
     
   

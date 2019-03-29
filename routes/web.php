@@ -35,7 +35,7 @@ Route::post('post/{post}/comment','CommentsController@store' );
 Route::get('/register','RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
 //login and logout routes
-Route::get('/login','SessionsController@create');
+Route::get('/login','SessionsController@create')->name('login');
 Route::post('/login','SessionsController@store');
 Route::get('/logout','SessionsController@destroy');
 

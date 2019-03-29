@@ -3,7 +3,9 @@
 @section('content')
 
 <h2 class="display-4">Create Post: </h2>
+
 <hr>
+
 
 
          <div class="col-sm-8 offset-md-3">

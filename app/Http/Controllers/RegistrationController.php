@@ -6,6 +6,7 @@ use App\User;
 use App\Mail\Welcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegistrationRequest;
 
 
 class RegistrationController extends Controller
@@ -16,16 +17,11 @@ class RegistrationController extends Controller
     }
 
 
-    public function store(Request $data)
+    public function store(Request $data,RegistrationRequest $request)
     {
-          $this->validate(request(),[
+         
 
-            'name' =>  'required',
-            'email'  =>   'required|email',
-            'password'  =>  'required|min:6|confirmed',
-          ]);
-
-              $password = request('password');
+        $password = request('password');
 
        $user =    User::create([
         'name' => $data['name'],
